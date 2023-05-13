@@ -1,41 +1,68 @@
-
 import React from "react";
 import "./home.scss"
 import { Typography, Box, Button, Grid } from "@mui/material";
-
+import { useAuth0 } from '@auth0/auth0-react'
 
 function Home() {
+
+    const { loginWithRedirect, } = useAuth0();
+
+    const handleLogin = async () => {
+        await loginWithRedirect({
+            appState: {
+                returnTo: "/Dashboard",
+            },
+        });
+    };
+
+    const handleSignUp = async () => {
+        await loginWithRedirect({
+            appState: {
+                returnTo: "/Dashboard",
+            },
+            authorizationParams: {
+                screen_hint: "signup",
+            },
+        });
+    };
+
+
     return (
-        <Grid container rowSpacing={2} className="loginContainer" sx={{
+        <Grid container className="loginContainer" sx={{
+
 
         }}>
-            <Grid item xs={6} sx={{ mt: 50 }} >
+            <Grid className="leftContainer" md={6}
 
-                <Typography fontSize={80} fontWeight={500} className="loginTitle" >
+            >
+                <Box className="logo">
+                    <Typography fontWeight={"bold"} fontSize={45}>EX</Typography>
+                    <span className="logoTitle">ExamensArbete</span>
+
+                </Box>
+                <Typography fontSize={80} fontWeight={500} mt={50} className="loginTitle" >
                     Welcome To <br /> Your Business<br /> Dashbaord
                 </Typography>
 
             </Grid>
 
-            <Grid item xs={6} container
-                direction="row"
-                justifyContent="space-between"
+            <Grid md={6} container
+                direction="column"
+                justifyContent="flex-end"
                 alignItems="center"
-                marginTop={50}
             >
 
-                <Button sx={{
-                    marginLeft: "10%",
-
+                <Button onClick={handleLogin} sx={{
+                    marginBottom: 20
                 }} >
                     <Typography className="loginButton" fontSize={60} width={280}  >
                         Login
                     </Typography>
                 </Button>
-                <Button sx={{
-                    marginRight: "20%",
+                <Button onClick={handleSignUp} sx={{
+
                 }}>
-                    <Typography className="signupButton" fontSize={60} width={280}  >
+                    <Typography className="signupButton" fontSize={60} width={280} >
                         Sign Up
                     </Typography>
                 </Button>

@@ -13,7 +13,32 @@
 
 }
 
+.loginButton:hover {
+    color: wheat;
+}
+
 .signupButton {
     color: #7e57c2;
-    border: 4px solid
+    border: 4px solid;
+}
+
+.signupButton:hover {
+    color: wheat;
+}
+
+.logo {
+    color: white;
+    display: flex;
+    align-items: center;
+    top: 0;
+    left: 0;
+
+
+}
+
+.logoTitle {
+    padding: 0 15px;
+    font-size: 30px;
+    text-decoration-line: underline;
+
 }

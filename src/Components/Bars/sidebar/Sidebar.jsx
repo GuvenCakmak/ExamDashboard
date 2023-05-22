@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import { Box, IconButton, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
@@ -16,9 +16,15 @@ import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 import { Auth0Provider, useAuth0 } from "@auth0/auth0-react";
 
+
 const Item = ({ title, to, icon, selected, setSelected }) => {
 
+    const { isLoading } = useAuth0()
 
+
+    if (isLoading) {
+        return <div></div>
+    }
     return (
         <MenuItem
             active={selected === title}
@@ -42,13 +48,7 @@ const SidebarNav = () => {
 
 
     return (
-        <Box
-            sx={{
-                display: "flex",
-                margin: 0,
-
-            }}
-        >
+        <Box sx={{ marginRight: 4, }}>
             <Sidebar collapsed={isCollapsed}>
                 <Menu iconShape="square">
                     {/* LOGO AND MENU ICON */}
@@ -79,7 +79,7 @@ const SidebarNav = () => {
 
                     {!isCollapsed && (
 
-                        <Box mb="25px">
+                        <Box >
 
                             <Box display="flex" justifyContent="center" alignItems="center" width="200">
                                 <img width={100} height={100} alt="profile-user"
@@ -102,14 +102,15 @@ const SidebarNav = () => {
                     )}
 
                     <Box >
-                        <Item
-                            title="Dashboard"
-                            to="/"
-                            icon={<HomeOutlinedIcon />}
-                            selected={selected}
-                            setSelected={setSelected}
-                        />
-
+                        <NavLink exact to="/Dashboard">
+                            <Item
+                                title="Dashboard"
+                                to="/"
+                                icon={<HomeOutlinedIcon />}
+                                selected={selected}
+                                setSelected={setSelected}
+                            />
+                        </NavLink>
                         <Typography
                             variant="h6"
 
@@ -117,20 +118,24 @@ const SidebarNav = () => {
                         >
                             Data
                         </Typography>
-                        <Item
-                            title="Manage Team"
-                            to="/team"
-                            icon={<PeopleOutlinedIcon />}
-                            selected={selected}
-                            setSelected={setSelected}
-                        />
-                        <Item
-                            title="Contacts Information"
-                            to="/contacts"
-                            icon={<ContactsOutlinedIcon />}
-                            selected={selected}
-                            setSelected={setSelected}
-                        />
+                        <NavLink exact to="/Products">
+                            <Item
+
+                                title="Products"
+                                icon={<PeopleOutlinedIcon />}
+                                selected={selected}
+                                setSelected={setSelected}
+                            />
+                        </NavLink>
+                        <NavLink exact to="/Customers">
+                            <Item
+                                title="Customers"
+                                to="/Customers"
+                                icon={<ContactsOutlinedIcon />}
+                                selected={selected}
+                                setSelected={setSelected}
+                            />
+                        </NavLink>
                         <Item
                             title="Invoices Balances"
                             to="/invoices"
@@ -199,6 +204,7 @@ const SidebarNav = () => {
                     </Box>
                 </Menu>
             </Sidebar>
+
         </Box>
     );
 };

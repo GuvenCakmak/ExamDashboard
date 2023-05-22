@@ -19,7 +19,9 @@ export default function Navbar() {
         <Box sx={{
             display: "flex",
             justifyContent: "space-between",
-            marginLeft: 2,
+            width: "100%",
+            marginTop: 0.5,
+            anchor: "top"
 
 
         }}>

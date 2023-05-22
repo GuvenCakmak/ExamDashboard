@@ -47,23 +47,25 @@ const data = [
 
 function RevenueChart() {
     return (
-        <AreaChart
-            width={800}
-            height={400}
-            data={data}
-            margin={{
-                top: 10,
-                right: 30,
-                left: 0,
-                bottom: 0,
-            }}
-        >
+        <ResponsiveContainer width="100%" height={300} >
+            <AreaChart
 
-            <XAxis dataKey="month" tick={{ fill: 'white' }} tickLine={{ stroke: 'white' }} />
-            <YAxis tick={{ fill: 'white' }} tickLine={{ stroke: 'white' }} />
-            <Tooltip />
-            <Area type="monotone" dataKey="kr" stroke="#8884d8" fill="#8884d8" />
-        </AreaChart>
+
+                data={data}
+                margin={{
+                    top: 10,
+                    right: 10,
+                    left: 0,
+                    bottom: 0,
+                }}
+            >
+
+                <XAxis dataKey="month" tick={{ fill: 'white' }} tickLine={{ stroke: 'white' }} />
+                <YAxis tick={{ fill: 'white' }} tickLine={{ stroke: 'white' }} />
+                <Tooltip />
+                <Area type="monotone" dataKey="kr" stroke="#8884d8" fill="#8884d8" />
+            </AreaChart>
+        </ResponsiveContainer>
     )
 };
 

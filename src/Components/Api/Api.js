@@ -1,19 +1,17 @@
-import React from "react";
 
 
 
-function Api() {
-
-    fetch('https://dummyjson.com/products/1')
-        .then(res => res.json())
-        .then(json => console.log(json))
-
-    return (
 
 
-        <div></div>
 
-    )
-};
+const Api = async () => {
+    const response = await fetch("https://dummyjson.com/products");
+    const data = await response.json();
+    return data;
+}
+
+
+
+
 
 export default Api;

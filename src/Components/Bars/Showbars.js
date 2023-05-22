@@ -5,7 +5,10 @@ import SidebarNav from "./sidebar/Sidebar";
 import { useLocation } from "react-router-dom";
 import { Box } from "@mui/material";
 import { useAuth0 } from "@auth0/auth0-react";
+import Sidetest from "./sidebar/sidetest";
+
 function Showbars({ children }) {
+
 
     const location = useLocation();
     const [showBars, setshowBars] = useState(false)
@@ -27,18 +30,13 @@ function Showbars({ children }) {
 
 
 
-        <Box sx={{ heigth: "100%" }}>
+
+        <>
             {showBars ? (
-                <>
-                    <Box sx={{ float: "left", marginRight: 5, width: "auto", }}>
-                        <SidebarNav />
-                    </Box>
-                    <Box sx={{ float: "top", width: "auto" }}>
-                        <Navbar />
-                    </Box>
-                </>
+                <Sidetest />
             ) : null}
-        </Box>
+        </>
+
 
 
     )

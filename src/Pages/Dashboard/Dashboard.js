@@ -9,7 +9,7 @@ import Navbar from "../../Components/Bars/Navbar/Navbar";
 import Reviews from "./Reviews";
 import { mockTransactions } from "../../Components/Data/MockData";
 import Header from "../../Components/Header";
-import Example2 from "../../Components/Charts/PieChart";
+import PieProduct from "../../Components/Charts/PieChart";
 
 function Dashboard() {
 
@@ -71,7 +71,7 @@ function Dashboard() {
 
                     <Box sx={{ backgroundColor: "#283593", borderRadius: "25px", padding: 1, margin: 2, }}>
                         <Typography sx={{ justifyContent: "center", display: "flex" }} color={"whitesmoke"} variant="h6">Products Sold Today</Typography>
-                        <Example2 />
+                        <PieProduct />
                     </Box>
                 </Grid>
 
@@ -81,8 +81,8 @@ function Dashboard() {
                 }} sx={4}>
 
                     <Box
-
-                        marginTop={2}
+                        padding={1}
+                        margin={2}
                         backgroundColor="#283593"
                         borderRadius={6}
 

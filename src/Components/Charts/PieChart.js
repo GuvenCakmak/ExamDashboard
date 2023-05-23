@@ -3,7 +3,7 @@ import React from 'react';
 import { PieChart, Pie, Tooltip } from 'recharts';
 
 
-const App = () => {
+function PieProduct() {
 
 
   const data = [
@@ -23,4 +23,4 @@ const App = () => {
   );
 }
 
-export default App;
+export default PieProduct;

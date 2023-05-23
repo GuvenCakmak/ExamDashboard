@@ -29,12 +29,14 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
         <MenuItem
             active={selected === title}
             style={{
+                color: "#383593",
 
             }}
             onClick={() => setSelected(title)}
             icon={icon}
+
         >
-            <Typography>{title}</Typography>
+            <Typography sx={{ fontSize: 16, color: "#0d0b5c", fontWeight: 500 }}>{title}</Typography>
             <Link to={to} />
         </MenuItem>
     );
@@ -126,7 +128,7 @@ const SidebarNav = () => {
                                 selected={selected}
                                 setSelected={setSelected}
                             />
-                        </NavLink>
+                        </NavLink >
                         <NavLink exact to="/Customers">
                             <Item
                                 title="Customers"
@@ -136,14 +138,15 @@ const SidebarNav = () => {
                                 setSelected={setSelected}
                             />
                         </NavLink>
-                        <Item
-                            title="Invoices Balances"
-                            to="/invoices"
-                            icon={<ReceiptOutlinedIcon />}
-                            selected={selected}
-                            setSelected={setSelected}
-                        />
-
+                        <NavLink exact to="/Transactions">
+                            <Item
+                                title="Transactions"
+                                to="/Transactions"
+                                icon={<ReceiptOutlinedIcon />}
+                                selected={selected}
+                                setSelected={setSelected}
+                            />
+                        </NavLink>
                         <Typography
                             variant="h6"
 
@@ -158,13 +161,7 @@ const SidebarNav = () => {
                             selected={selected}
                             setSelected={setSelected}
                         />
-                        <Item
-                            title="Calendar"
-                            to="/calendar"
-                            icon={<CalendarTodayOutlinedIcon />}
-                            selected={selected}
-                            setSelected={setSelected}
-                        />
+
 
                         <Typography
                             variant="h6"
@@ -173,34 +170,38 @@ const SidebarNav = () => {
                         >
                             Charts
                         </Typography>
-                        <Item
-                            title="Bar Chart"
-                            to="/bar"
-                            icon={<BarChartOutlinedIcon />}
-                            selected={selected}
-                            setSelected={setSelected}
-                        />
-                        <Item
-                            title="Pie Chart"
-                            to="/pie"
-                            icon={<PieChartOutlineOutlinedIcon />}
-                            selected={selected}
-                            setSelected={setSelected}
-                        />
-                        <Item
-                            title="Line Chart"
-                            to="/line"
-                            icon={<TimelineOutlinedIcon />}
-                            selected={selected}
-                            setSelected={setSelected}
-                        />
-                        <Item
-                            title="Geography Chart"
-                            to="/geography"
-                            icon={<MapOutlinedIcon />}
-                            selected={selected}
-                            setSelected={setSelected}
-                        />
+                        <NavLink exact to="/Bar">
+                            <Item
+                                title="Bar Chart"
+                                to="/Bar"
+                                icon={<BarChartOutlinedIcon />}
+                                selected={selected}
+                                setSelected={setSelected}
+                            />
+                        </NavLink>
+
+                        <NavLink exact to="/Pie">
+                            <Item
+                                title="Pie Chart"
+                                to="/Pie"
+                                icon={<PieChartOutlineOutlinedIcon />}
+                                selected={selected}
+                                setSelected={setSelected}
+                            />
+                        </NavLink>
+
+                        <NavLink exact to="/Line">
+                            <Item
+
+                                title="Line Chart"
+                                to="/Line"
+                                icon={<TimelineOutlinedIcon />}
+                                selected={selected}
+                                setSelected={setSelected}
+
+                            />
+                        </NavLink>
+
                     </Box>
                 </Menu>
             </Sidebar>

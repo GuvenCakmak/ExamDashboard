@@ -3,10 +3,11 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Typography, Box } from '@mui/material';
-
+import { useAuth0 } from '@auth0/auth0-react';
 
 export default function Navbar() {
     const [anchorEl, setAnchorEl] = React.useState(null);
+    const { logout } = useAuth0()
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -72,7 +73,7 @@ export default function Navbar() {
                 >
                     <MenuItem onClick={handleClose}>Profile</MenuItem>
                     <MenuItem onClick={handleClose}>My account</MenuItem>
-                    <MenuItem onClick={handleClose}>Logout</MenuItem>
+                    <MenuItem onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Logout</MenuItem>
                 </Menu>
             </Box>
         </Box>

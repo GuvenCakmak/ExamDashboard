@@ -3,7 +3,6 @@ import Home from "./Pages/Home/Home";
 import { Route, Routes, } from "react-router-dom"
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import Products from "./Pages/Product/Product";
-import { useAuth0 } from "@auth0/auth0-react";
 import Customers from "./Pages/Customer/Customers";
 import Transactions from "./Pages/Transaction/Transaction";
 import Line from "./Pages/Line";

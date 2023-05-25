@@ -1,8 +1,7 @@
-import { React, useEffect, useState } from "react";
-import { Typography, Box, Button, Grid, List, ListItem, ListItemText, Divider, MenuItem, } from "@mui/material";
+import { React, } from "react";
+import { Typography, Box, Grid, } from "@mui/material";
 import RevenueChart from "../../Components/Charts/LineChart";
 import LocalFireDepartmentOutlinedIcon from '@mui/icons-material/LocalFireDepartmentOutlined';
-import Api from "../../Components/Api/Api";
 import Example from "../../Components/Charts/ProductChart";
 import SidebarNav from "../../Components/Bars/sidebar/Sidebar";
 import Navbar from "../../Components/Bars/Navbar/Navbar";
@@ -12,19 +11,6 @@ import Header from "../../Components/Header";
 import PieProduct from "../../Components/Charts/PieChart";
 
 function Dashboard() {
-
-    const [products, setProducts] = useState({ products: [] });
-
-    useEffect(() => {
-
-        const getData = async () => {
-            const data = await Api();
-
-            setProducts(data)
-        }
-        getData();
-    }, []);
-
 
 
     return (
